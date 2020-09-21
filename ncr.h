@@ -1,3 +1,7 @@
+// Create a global class object to use ......
+// Eg ->  NCR ncr(max_size_of_n);
+//	  ncr.get(n,r)  // this gets the value of nCr
+
 class NCR{
 	public:
 		//Variables
