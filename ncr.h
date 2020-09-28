@@ -30,12 +30,12 @@ class NCR{
 			N = x;
 			fact.resize(N+1);
 			fact[0] = 1;
-			rep(i,1,N) fact[i] = fact[i-1]*i%mod;
+			rep(i,1,N) fact[i] = 1LL*fact[i-1]*i%MOD;
 		}
 		
 		// Methods
 		int get(int n,int r){
-			return fact[n] * inverse(fact[r]) % mod * inverse(fact[n - r]) % mod;
+			return 1LL * fact[n] * inverse(fact[r]) % MOD * inverse(fact[n - r]) % MOD;
 		}
 	private:
 		const int MOD = 1e9+7;
@@ -52,21 +52,21 @@ class NCR{
 		    return d;
 		}
 		long long binexp(long long a, long long b) {
-		    a %= mod;
+		    a %= MOD;
 		    long long res = 1;
 		    while (b > 0) {
 		        if (b & 1)
-		            res = res * a % mod;
-		        a = a * a % mod;
+		            res = res * a % MOD;
+		        a = a * a % MOD;
 		        b >>= 1;
 		    }
 		    return res;
 		}
 		int inverse(int a){
-			if(MOD == (int)1e9+7) return binexp(a,mod-2);
+			if(MOD == (int)1e9+7) return binexp(a,MOD-2);
 			int x,y;
-			euclid(a,mod,x,y);
-			if(x<0) x = mod + x;
+			euclid(a,MOD,x,y);
+			if(x<0) x = MOD + x;
 			return x;
 		}
 };
