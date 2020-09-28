@@ -1,3 +1,24 @@
+// This is method 1 - Pascal triangle method
+// nCr is C[n][r]
+
+
+const int maxncr = 31;
+long long C[maxncr + 1][maxncr + 1];
+void init_ncr(){
+	C[0][0] = 1;
+	for (int n = 1; n <= maxncr; ++n) {
+		C[n][0] = C[n][n] = 1;
+		for (int k = 1; k < n; ++k)
+			C[n][k] = C[n - 1][k - 1] + C[n - 1][k];
+	}
+}
+
+
+
+
+
+//  This is method2, use it when N is greater and we take mod of values
+
 class NCR{
 	public:
 		//Variables
